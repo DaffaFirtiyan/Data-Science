@@ -1,8 +1,16 @@
 library(quantmod)
-gme <- getSymbols(Symbols = "GME", src = "yahoo", auto.assign = FALSE)
-chartSeries(gme)
-add_SMA(n = 100, on = 1, col = "red")
-add_SMA(n = 20, on = 1, col = "black")
-add_RSI(n = 14, maType = "SMA")
-add_BBands(n = 20, maType = "SMA", sd = 1, on = -1)
-add_MACD(fast = 12, slow = 26, signal, 9, maType = "SMA", histogram = TRUE)
+library(prophet)
+library(forecast)
+library(lubridate)
+
+date <- "2020-1-1"
+getSymbols("GME", src = "yahoo", from = date)
+getSymbols("SBI", src = "yahoo", from = date)
+
+df <- data.frame(ds = index(GME), y = as.numeric(GME[,"GME.Close"]))
+df <- data.frame(ds = index(SBI), y = as.numeric(SBI[,'SBI.Close']))
+
+prediction = prophet(df)
+futurePrice = make_future_dataframe(prediction, periods = 30)
+forecastGME = predict(prediction, futurePrice)
+
