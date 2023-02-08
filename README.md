@@ -45,4 +45,8 @@ We print the prediction and the actual value for each iteration and the final RM
 
 A line plot is created to visualise the expected values (in blue) vs. the rolling forecast predictions (in red), showing that the model captures some trends and is in the correct scale. 
 
+The RMSE with (5,1,0) is 89.021
+
 There is potentitial for furether improvement by adjusting the p, d, q param of the model.
+
+If we add the moving average component to the ARIMA model by 1, we get an RMSE 76.952 which shows a better fit. 

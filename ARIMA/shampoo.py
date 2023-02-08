@@ -25,7 +25,7 @@ predictions = list()
 
 # walk forward validatoin
 for t in range(len(test)):
-    model = ARIMA(history, order=(5,1,0))
+    model = ARIMA(history, order=(5,1,1))
     model_fit = model.fit()
     output = model_fit.forecast()
     yHat = output[0]
