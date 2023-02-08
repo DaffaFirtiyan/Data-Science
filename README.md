@@ -3,7 +3,7 @@
 shampoo.py
 I attempt to apply the ARIMA model to this time series data of monthly shampoo sales over a 3 year period.
 
-TLDR: This code uses the ARIMA model to predict future values of a given dataset. It first loads the dataset, splits it into a train and test set, and then uses the ARIMA model to make predictions on the test set. It then evaluates the forecasts using root mean squared error (RMSE) and plots the results against the actual outcomes.
+TL;DR: This code uses the ARIMA model to predict future values of a given dataset. It first loads the dataset, splits it into a train and test set, and then uses the ARIMA model to make predictions on the test set. It then evaluates the forecasts using root mean squared error (RMSE) and plots the results against the actual outcomes.
 
 After parsing through the data, we can see a clear trend. This suggests t aht time series is not stationary and will required differencing to make it stationary, at least a difference order of 1.
 
