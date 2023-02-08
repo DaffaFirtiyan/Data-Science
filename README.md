@@ -3,6 +3,8 @@
 shampoo.py
 I attempt to apply the ARIMA model to this time series data of monthly shampoo sales over a 3 year period.
 
+TLDR: This code uses the ARIMA model to predict future values of a given dataset. It first loads the dataset, splits it into a train and test set, and then uses the ARIMA model to make predictions on the test set. It then evaluates the forecasts using root mean squared error (RMSE) and plots the results against the actual outcomes.
+
 After parsing through the data, we can see a clear trend. This suggests t aht time series is not stationary and will required differencing to make it stationary, at least a difference order of 1.
 
 After taking a quick look at an autocorrelation plot of the time seires, we can see that the plot shows a positive correlation with the first 10-12 lags, the correlation is particularlong strong for the first 5 lags. This means that we 5 for "p" (autoregression) might be a good starting point.
@@ -37,4 +39,10 @@ The line plot of the residuals errors whos that the current model may not have c
 
 From the density plot of residuals we see that they have a Gaussian distribution but doesn't have a mean of 0, or are not centered around zero. This shows that the residual errors are biassed, meaning that on average, the eerrors are either over or under estimating the actual values.
 
-Now we perform this analysis on the training dataset.
+Now we use the ARIMA model to forecast future time steps.
+
+We print the prediction and the actual value for each iteration and the final RMSE is calculated to compare the accuracy of the model's predictions which is 89.021.
+
+A line plot is created to visualise the expected values (in blue) vs. the rolling forecast predictions (in red), showing that the model captures some trends and is in the correct scale. 
+
+There is potentitial for furether improvement by adjusting the p, d, q param of the model.
